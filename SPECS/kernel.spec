@@ -62,7 +62,7 @@ Summary: The Linux kernel
 # For non-released -rc kernels, this will be appended after the rcX and
 # gitX tags, so a 3 here would become part of release "0.rcX.gitX.3"
 #
-%global baserelease 1
+%global baserelease 2
 %global fedora_build %{baserelease}
 
 # base_sublevel is the kernel version we're starting with and patching
@@ -623,8 +623,13 @@ Patch10: 0001-block-cgroups-kconfig-build-bits-for-BFQ-v6r2-3.10.patch
 Patch11: 0002-block-introduce-the-BFQ-v6r2-I-O-sched-for-3.10.patch
 Patch12: 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
 
+# BFS
+Patch20: 3.10-sched-bfs-440.patch
+Patch21: bfs440-grq_urwlocks.patch
+Patch22: urw-locks.patch 
+
 # UKSM
-Patch20: uksm-0.1.2.2-for-v3.10.patch
+Patch30: uksm-0.1.2.2-for-v3.10.patch
 
 # END OF PATCH DEFINITIONS
 
@@ -1163,6 +1168,11 @@ ApplyOptionalPatch compile-fixes.patch
 ApplyPatch 0001-block-cgroups-kconfig-build-bits-for-BFQ-v6r2-3.10.patch
 ApplyPatch 0002-block-introduce-the-BFQ-v6r2-I-O-sched-for-3.10.patch
 ApplyPatch 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
+
+# BFS
+ApplyPatch 3.10-sched-bfs-440.patch
+ApplyPatch bfs440-grq_urwlocks.patch
+ApplyPatch urw-locks.patch 
 
 # UKSM
 ApplyPatch uksm-0.1.2.2-for-v3.10.patch
