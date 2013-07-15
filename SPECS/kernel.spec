@@ -74,7 +74,7 @@ Summary: The Linux kernel
 %if 0%{?released_kernel}
 
 # Do we have a -stable update to apply?
-%define stable_update 0
+%define stable_update 1
 # Is it a -stable RC?
 %define stable_rc 0
 # Set rpm version accordingly
@@ -618,6 +618,13 @@ Patch05: makefile-after_link.patch
 
 %if !%{nopatches}
 
+# BFQ
+Patch10: 0001-block-cgroups-kconfig-build-bits-for-BFQ-v6r2-3.10.patch
+Patch11: 0002-block-introduce-the-BFQ-v6r2-I-O-sched-for-3.10.patch
+Patch12: 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
+
+# UKSM
+Patch20: uksm-0.1.2.2-for-v3.10.patch
 
 # END OF PATCH DEFINITIONS
 
@@ -1151,6 +1158,14 @@ ApplyPatch makefile-after_link.patch
 ApplyOptionalPatch compile-fixes.patch
 
 %if !%{nopatches}
+
+# BFQ
+ApplyPatch 0001-block-cgroups-kconfig-build-bits-for-BFQ-v6r2-3.10.patch
+ApplyPatch 0002-block-introduce-the-BFQ-v6r2-I-O-sched-for-3.10.patch
+ApplyPatch 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
+
+# UKSM
+ApplyPatch uksm-0.1.2.2-for-v3.10.patch
 
 # END OF PATCH APPLICATIONS
 
