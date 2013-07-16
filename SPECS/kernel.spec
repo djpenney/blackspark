@@ -625,8 +625,11 @@ Patch12: 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
 
 # BFS
 Patch20: 3.10-sched-bfs-440.patch
-Patch21: bfs440-grq_urwlocks.patch
-Patch22: urw-locks.patch 
+Patch21: preempt-desktop-tune.patch
+Patch22: hz-no_default_250.patch
+Patch23: hz-default_1000.patch
+Patch24: kconfig-expose_vmsplit_option.patch
+Patch25: urw-locks.patch
 
 # UKSM
 Patch30: uksm-0.1.2.2-for-v3.10.patch
@@ -1171,8 +1174,11 @@ ApplyPatch 0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v6r2-for-3.10.0.patch
 
 # BFS
 ApplyPatch 3.10-sched-bfs-440.patch
-ApplyPatch bfs440-grq_urwlocks.patch
-ApplyPatch urw-locks.patch 
+ApplyPatch preempt-desktop-tune.patch
+ApplyPatch hz-no_default_250.patch
+ApplyPatch hz-default_1000.patch
+ApplyPatch kconfig-expose_vmsplit_option.patch
+ApplyPatch urw-locks.patch
 
 # UKSM
 ApplyPatch uksm-0.1.2.2-for-v3.10.patch
